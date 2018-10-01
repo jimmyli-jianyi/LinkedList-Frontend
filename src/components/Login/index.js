@@ -20,19 +20,15 @@ export default class Login extends Component {
     e.preventDefault();
     this.props.clearError();
     let userCredentials = { ...this.state };
-    // call redux
-    // why isnt this request in a componentDidMount?
+
     try {
-      // if there is an error will proceed to the catch block?
       await this.props.authRequest(
         'user',
         userCredentials.username,
         userCredentials.password
       );
-      // where we want to get current user data?
       await this.props.fetchCurrentUserRequest(userCredentials.username);
-      // what is this history push? does it push to local storage
-      // this is force redirect to '/' route
+
       this.props.history.push('/');
     } catch (error) {
       return;

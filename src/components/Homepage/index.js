@@ -22,14 +22,6 @@ export default class Homepage extends Component {
       );
     } else {
       displayJobs = this.props.jobs.map(job => (
-        // <div key={job.id}>
-        //   <li>
-        //     {job.title} @{job.company}
-        //   </li>
-        //   <li>
-        //     {job.salary} | {job.equity}
-        //   </li>
-        // </div>
         <Card
           key={job.id}
           title={job.title}
@@ -57,7 +49,6 @@ Homepage.defaultProps = {
 };
 
 Homepage.propTypes = {
-  // where is currentUser?
   currentUser: PropTypes.object,
   jobs: PropTypes.array.isRequired
 };

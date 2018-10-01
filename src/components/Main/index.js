@@ -5,7 +5,6 @@ import Signup from '../../containers/Signup';
 import Homepage from '../../containers/Homepage';
 import NoAuthRoute from '../../containers/NoAuthRoute';
 import ProtectedRoute from '../../containers/ProtectedRoute';
-// need to import new search component
 import SearchResults from '../../containers/SearchResults';
 import Profile from '../../containers/Profile';
 import Edit from '../../containers/Edit';

@@ -14,7 +14,6 @@ export default class SearchResults extends Component {
         <h3>Sorry, no search right now. Please try again later.</h3>
       );
     } else {
-      //console.log('CATEGORY', this.props.location.category.category);
       if (category === 'companies') {
         displaySearch = this.props.search.map(result => (
           <Card
@@ -65,7 +64,6 @@ export default class SearchResults extends Component {
 }
 
 SearchResults.propTypes = {
-  // where is currentUser?
   currentUser: PropTypes.object,
   search: PropTypes.array.isRequired
 };

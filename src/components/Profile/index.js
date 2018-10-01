@@ -2,24 +2,18 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Header from '../../containers/Header';
 import { Link } from 'react-router-dom';
-// create profile card
-// import ProfileCard from '../../components/ProfileCard';
 import './style.css';
 
 export default class Profile extends Component {
-  // componentDidMount(){ this.props.fetchUserProfile}
   render() {
     let displayProfile;
     const {
       first_name,
       last_name,
-      email,
       photo,
       current_company
     } = this.props.currentUser;
-    // console.log(this.props.match.params.username);
     if (this.props.match.params.username === this.props.currentUser.username) {
-      // make card for logged in user!
       displayProfile = (
         <div className="Profile">
           <img className="Profile-Pic" src={photo} alt="#" />
@@ -40,11 +34,9 @@ export default class Profile extends Component {
       const {
         first_name,
         last_name,
-        email,
         photo,
         current_company
       } = this.props.userProfile;
-      // build a card for someone's else profile
 
       displayProfile = (
         <div>
@@ -71,7 +63,6 @@ export default class Profile extends Component {
 }
 
 Profile.propTypes = {
-  // where is currentUser?
   currentUser: PropTypes.object,
   userProfile: PropTypes.object
 };

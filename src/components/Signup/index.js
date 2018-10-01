@@ -31,7 +31,6 @@ export default class Signup extends Component {
       }
     }
     try {
-      // call redux
       await this.props.createUserRequest(newUser);
       await this.props.authRequest('user', newUser.username, newUser.password);
       this.props.history.push('/');
