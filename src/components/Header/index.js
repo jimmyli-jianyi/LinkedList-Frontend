@@ -18,15 +18,9 @@ export default class Header extends Component {
   // set searchCat
   handleSearch = async e => {
     e.preventDefault();
-    // ['companies', 'jobs', 'people']
+
     let searchCat = this.props.searchCategories[this.state.searchCategoryIdx];
-    // if (this.state.searchCategoryIdx === 0) {
-    //   searchCat = 'companies';
-    // } else if (this.state.searchCategoryIdx === 1) {
-    //   searchCat = 'jobs';
-    // } else if (this.state.searchCategoryIdx === 2) {
-    //   searchCat = 'users';
-    // }
+
     // TODO: handle search feature!!!
     // this should invoke actionCreator functions to search the API with keyword
 
@@ -44,19 +38,11 @@ export default class Header extends Component {
     }
     this.setState(DEFAULT_STATE);
   };
-  // showMenu = evt => {
-  //   evt.preventDefault();
-  //   this.setState({ isDropdownVisible: true });
-  // };
-  // closeMenu = evt => {
-  //   evt.preventDefault();
-  //   this.setState({ isDropdownVisible: false });
-  // };
-  handleProfile = e => {
-    // <Redirect to={`/users/${this.props.currentUser.username}`} />;
+
+  handleProfile = () => {
     this.props.history.push(`/users/${this.props.currentUser.username}`);
   };
-  handleLogout = e => {
+  handleLogout = () => {
     localStorage.clear();
     this.props.logout();
   };
@@ -72,14 +58,8 @@ export default class Header extends Component {
     const { searchText, searchCategoryIdx, isDropdownVisible } = this.state;
     // the props below are either from redux state or default props
     // NEED to mapStateToProps in order to get reduxState to props
-    const {
-      searchCategories,
-      displayName,
-      profilePic,
-      currentUser
-    } = this.props;
+    const { searchCategories, profilePic, currentUser } = this.props;
     if (this.state.redirect) {
-      // return <Redirect to="/results"/>;
       this.props.history.push({
         pathname: '/results',
         state: {
