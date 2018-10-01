@@ -29,6 +29,7 @@ export default class Header extends Component {
       this.setState({ redirect: true });
 
       //this.props.history.push('/results');
+
       // after this request is completed you get an updated redux state
       // dispatch action and will update redux state with the result of the API call
       // searchArr should be an arr of search terms.
