@@ -1,18 +1,9 @@
 import React, { Component } from 'react';
 import './style.css';
-import { Link } from 'react-router-dom';
 
 export default class Card extends Component {
   render() {
-    // first_name(pin): "steve"
-    // last_name(pin): "cao"
-    // email(pin): "steve@gmail.com"
-    // photo(pin): null
-    // current_company(pin): null
-    // username(pin): "steve"
     const { title, company, salary, equity } = this.props;
-    // if (this.props.jobs[0].title || this.props.search[0].title) {
-    // console.log('CARD', this.props, this.category);
 
     if (this.props.category === 'companies') {
       return (
@@ -32,7 +23,6 @@ export default class Card extends Component {
     }
     if (this.props.category === 'users') {
       return (
-        // <Link to={`/users/${this.props.username}`}>
         <div className="Card">
           <img
             src="https://vignette.wikia.nocookie.net/the-darkest-minds/images/4/47/Placeholder.png/revision/latest?cb=20160927044640"
@@ -47,7 +37,6 @@ export default class Card extends Component {
             </div>
           </div>
         </div>
-        // </Link>
       );
     }
     return (
@@ -67,9 +56,5 @@ export default class Card extends Component {
         </div>
       </div>
     );
-
-    // } else {
-    //   return <div>not a job</div>;
-    // }
   }
 }
