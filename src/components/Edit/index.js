@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Header from '../../containers/Header';
-import { Link } from 'react-router-dom';
-import { Redirect } from 'react-router-dom';
 import './style.css';
 
 export default class Edit extends Component {
@@ -35,19 +33,15 @@ export default class Edit extends Component {
   };
 
   handleSubmit = evt => {
-    // debugger;
     evt.preventDefault();
 
-    var { confirm_password, ...payload } = this.state;
+    var { ...payload } = this.state;
 
-    if (this.state.password === '') {
-      var { password, confirm_password, ...payload } = this.state;
-      // debugger;
-    }
-    // edit is a thunk that will send request to update db with new payload (new user data obj)
+    // if (this.state.password === '') {
+    //   var { password, confirm_password, ...payload } = this.state;
+    // }
     this.props.edit(this.state.username, payload);
-    // redirect to profilepage
-    // <Redirect to={`/users/${this.props.username}`} />;
+
     this.props.history.push(`/users/${this.state.username}`);
   };
 
@@ -58,7 +52,6 @@ export default class Edit extends Component {
         <div className="Edit">
           <h1>Edit Form</h1>
           <img src={this.state.photo} alt="placeholder photo" />
-          {/* form for editing */}
           <form onSubmit={this.handleSubmit} className="Edit-form">
             <div>
               <label htmlFor="first" />
