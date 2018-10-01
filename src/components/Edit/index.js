@@ -24,8 +24,6 @@ export default class Edit extends Component {
     };
   }
 
-  // will need an function for submitting form
-  // will need a function for listening to form and a controlled component
   handleChange = evt => {
     this.setState({
       [evt.target.name]: evt.target.value
