@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import UserProfilePlaceholder from '../../images/user_placeholder.png';
 import './style.css';
 import PropTypes from 'prop-types';
-import { Redirect } from 'react-router';
 
 const DEFAULT_STATE = {
   searchText: '',
@@ -28,7 +27,7 @@ export default class Header extends Component {
       await this.props.search(searchCat, this.state.searchText);
       this.setState({ redirect: true });
 
-      //this.props.history.push('/results');
+      // this.props.history.push('/results');
 
       // after this request is completed you get an updated redux state
       // dispatch action and will update redux state with the result of the API call
@@ -59,7 +58,7 @@ export default class Header extends Component {
     const { searchText, searchCategoryIdx, isDropdownVisible } = this.state;
     // the props below are either from redux state or default props
     // NEED to mapStateToProps in order to get reduxState to props
-    const { searchCategories, profilePic, currentUser } = this.props;
+    const { searchCategories, currentUser } = this.props;
     if (this.state.redirect) {
       this.props.history.push({
         pathname: '/results',
@@ -103,7 +102,7 @@ export default class Header extends Component {
           {/* </Link> */}
         </form>
         <div className="profile-area" onClick={this.showMenu}>
-          <img src={profilePic} alt="Profile" />
+          <img src={currentUser.photo} alt="Profile" />
           {/* displayName is coming from currentUser */}
           {/* need to be able to grab current user from database */}
           {/* make button that will call currentUser(type:FETCH_CURRENT_USER_SUCCESS?) */}

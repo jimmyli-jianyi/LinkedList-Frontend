@@ -33,11 +33,8 @@ export default class Edit extends Component {
   handleSubmit = evt => {
     evt.preventDefault();
 
-    var { ...payload } = this.state;
+    var { password, confirm_password, ...payload } = this.state;
 
-    // if (this.state.password === '') {
-    //   var { password, confirm_password, ...payload } = this.state;
-    // }
     this.props.edit(this.state.username, payload);
 
     this.props.history.push(`/users/${this.state.username}`);
@@ -84,6 +81,16 @@ export default class Edit extends Component {
                 type="text"
                 name="email"
                 value={this.state.email}
+                onChange={this.handleChange}
+              />
+            </div>
+
+            <div>
+              <label htmlFor="photo">Profile Picture</label>
+              <input
+                type="text"
+                name="photo"
+                value={this.state.photo}
                 onChange={this.handleChange}
               />
             </div>
